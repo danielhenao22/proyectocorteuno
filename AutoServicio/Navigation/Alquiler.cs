@@ -43,6 +43,7 @@ namespace AutoServicio.Navigation
             jCUsuario.DisplayMember = "Name";
             jCUsuario.ValueMember = "Value";
             jCUsuario.DataSource = tipo;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
