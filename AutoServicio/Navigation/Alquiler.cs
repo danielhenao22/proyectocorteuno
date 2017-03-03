@@ -28,7 +28,7 @@ namespace AutoServicio.Navigation
 
         public void cargarCombos()
         {
-            LinkedList<String> tipoDocumentos = new LinkedList<String>();
+            LinkedList<EntidadGen> tipoDocumentos = new LinkedList<EntidadGen>();
             tipoDocumentos = combo.buscarTodosTipoDoc();
 
             BindingList<Item> tipo = new BindingList<Item>();
@@ -36,7 +36,7 @@ namespace AutoServicio.Navigation
 
             for (int i = 0; i < tipoDocumentos.Count; i++)
             {                
-                tipo.Add(new Item((tipoDocumentos.ElementAt(i)), Convert.ToInt32(tipoDocumentos.ElementAt(i))));
+                tipo.Add(new Item((tipoDocumentos.ElementAt(i).nombre), Convert.ToInt32(tipoDocumentos.ElementAt(i).id)));
             }
             
 

@@ -23,9 +23,9 @@ namespace Platform.Modeler.DAO
 
         }
 
-        public LinkedList<String> buscarTodosCiudad()
+        public LinkedList<EntidadGen> buscarTodosCiudad()
         {
-            LinkedList<String> temp = new LinkedList<String>();
+            LinkedList<EntidadGen> temp = new LinkedList<EntidadGen>();
 
             var consulta = dbCiudad.CIUDAD.Select
                (p => new { p.ID, p.NOMBRE }).ToList();
@@ -34,8 +34,10 @@ namespace Platform.Modeler.DAO
 
             foreach (var ciu in consulta)
             {
-                temp.AddLast(ciu.NOMBRE.ToString());
-                temp.AddLast(ciu.NOMBRE);
+                EntidadGen ent = new EntidadGen();
+                ent.id = ciu.ID;
+                ent.nombre = ciu.NOMBRE;
+                temp.AddLast(ent);
             }
             return temp;
         }
@@ -57,19 +59,21 @@ namespace Platform.Modeler.DAO
             return temp;
         }
 
-        public LinkedList<String> buscarTodosTipoDoc()
+        public LinkedList<EntidadGen> buscarTodosTipoDoc()
         {
-            LinkedList<String> temp = new LinkedList<String>();
+            LinkedList<EntidadGen> temp = new LinkedList<EntidadGen>();
 
             var consulta = dbTipoDic.TIPO_DOCUMENTO.Select
                (p => new { p.ID, p.NOMBRE }).ToList();
 
             consulta.First();
 
-            foreach (var tip in consulta)
+            foreach (var ciu in consulta)
             {
-                temp.AddLast(tip.ID.ToString());
-                temp.AddLast(tip.NOMBRE);
+                EntidadGen ent = new EntidadGen();
+                ent.id = ciu.ID;
+                ent.nombre = ciu.NOMBRE;
+                temp.AddLast(ent);
             }
             return temp;
         }

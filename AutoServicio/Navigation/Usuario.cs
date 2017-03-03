@@ -26,17 +26,10 @@ namespace AutoServicio.Navigation
             ciudades = new LinkedList<string>();
             generos = new LinkedList<string>();
             tiposDoc = new LinkedList<string>();
-            llenarCombos();
+            
         }
 
-        public void llenarCombos()
-        {
-            ciudades = combos.buscarTodosCiudad();
-            generos = combos.buscarTodosGenero();
-            tiposDoc = combos.buscarTodosTipoDoc();            
-
-        }
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
             int documento = Convert.ToInt32((!jDocumento.Text.Equals("")) ? jDocumento.Text : "0");
