@@ -50,6 +50,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(291, 129);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button3
             // 
@@ -59,6 +60,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = " Ir";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -68,6 +70,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Ir";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 

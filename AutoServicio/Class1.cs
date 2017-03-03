@@ -15,7 +15,7 @@ namespace AutoServicio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Alquiler());
+            Application.Run(new Form1());
         }
     }
 }
