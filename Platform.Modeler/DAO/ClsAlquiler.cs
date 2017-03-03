@@ -15,6 +15,7 @@ namespace Platform.Modeler.DAO
         public ClsAlquiler()
         {
             db = new EntAlquilerDataContext();
+            // :c 
         }
 
         public bool guardar(int usuario_id, String vehiculo_id, DateTime fecha_alquiler)
