@@ -61,6 +61,12 @@
       <DependentUpon>EntGenero.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entity\EntidadGen.cs" />
+    <Compile Include="Entity\EntidadVeh.cs" />
+    <Compile Include="Entity\EntMarca.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntMarca.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Entity\EntTipoDoc.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +99,11 @@
     <None Include="Entity\EntGenero.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>EntGenero.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entity\EntMarca.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>EntMarca.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Entity\EntTipoDoc.dbml">
@@ -152,6 +163,11 @@
   <ItemGroup>
     <None Include="Entity\EntTipoDoc.dbml.layout">
       <DependentUpon>EntTipoDoc.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entity\EntMarca.dbml.layout">
+      <DependentUpon>EntMarca.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

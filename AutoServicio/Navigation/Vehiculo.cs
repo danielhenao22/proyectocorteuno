@@ -1,4 +1,5 @@
 ﻿using Platform.Modeler.DAO;
+using Platform.Modeler.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,36 @@ namespace AutoServicio.Navigation
     public partial class Vehiculo : Form
     {
         ClsVehiculo vehiculo;
+        ClsCombos combo;
         public Vehiculo()
         {
             InitializeComponent();
+            combo = new ClsCombos();
             vehiculo = new ClsVehiculo();
+            cargarLista();
+        }
+
+        public void cargarLista()
+        {
+            LinkedList<EntidadVeh> tipoDocumentos = new LinkedList<EntidadVeh>();
+            tipoDocumentos = combo.condicionalselect();
+
+            dataGridView1.Rows.Clear();
+            BindingList<Item> tipo = new BindingList<Item>();
+
+          
+
+            foreach (EntidadVeh v in tipoDocumentos)
+            {
+                dataGridView1.Rows.Add(v.placa);
+                dataGridView1.Rows.Add(v.npuertas);
+                dataGridView1.Rows.Add(v.color);
+                dataGridView1.Rows.Add(v.valor);
+                dataGridView1.Rows.Add(v.marcaId);
+            }
+
+
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
