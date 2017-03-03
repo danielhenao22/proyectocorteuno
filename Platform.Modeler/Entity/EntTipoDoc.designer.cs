@@ -36,7 +36,7 @@ namespace Platform.Modeler.Entity
     #endregion
 		
 		public EntTipoDocDataContext() : 
-				base(global::Platform.Modeler.Properties.Settings.Default.AlquilerCarrosConnectionString, mappingSource)
+				base(global::Platform.Modeler.Properties.Settings.Default.AlquilerCarrosConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

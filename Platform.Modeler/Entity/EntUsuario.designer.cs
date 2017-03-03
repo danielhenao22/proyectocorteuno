@@ -22,7 +22,7 @@ namespace Platform.Modeler.Entity
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Servicio")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AlquilerCarros")]
 	public partial class EntUsuarioDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,7 +36,7 @@ namespace Platform.Modeler.Entity
     #endregion
 		
 		public EntUsuarioDataContext() : 
-				base(global::Platform.Modeler.Properties.Settings.Default.ServicioConnectionString, mappingSource)
+				base(global::Platform.Modeler.Properties.Settings.Default.AlquilerCarrosConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -88,11 +88,11 @@ namespace Platform.Modeler.Entity
 		
 		private System.Nullable<int> _EDAD;
 		
-		private int _GENERO_ID;
+		private int _CIUDAD_ID;
 		
 		private int _TIPO_DOCUMENTO_ID;
 		
-		private int _CIUDAD_ID;
+		private int _GENERO_ID;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -106,12 +106,12 @@ namespace Platform.Modeler.Entity
     partial void OnAPELLIDOChanged();
     partial void OnEDADChanging(System.Nullable<int> value);
     partial void OnEDADChanged();
-    partial void OnGENERO_IDChanging(int value);
-    partial void OnGENERO_IDChanged();
-    partial void OnTIPO_DOCUMENTO_IDChanging(int value);
-    partial void OnTIPO_DOCUMENTO_IDChanged();
     partial void OnCIUDAD_IDChanging(int value);
     partial void OnCIUDAD_IDChanged();
+    partial void OnTIPO_DOCUMENTO_IDChanging(int value);
+    partial void OnTIPO_DOCUMENTO_IDChanged();
+    partial void OnGENERO_IDChanging(int value);
+    partial void OnGENERO_IDChanged();
     #endregion
 		
 		public USUARIO()
@@ -119,7 +119,7 @@ namespace Platform.Modeler.Entity
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CEDULA", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CEDULA", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int CEDULA
 		{
 			get
@@ -199,22 +199,22 @@ namespace Platform.Modeler.Entity
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENERO_ID", DbType="Int NOT NULL")]
-		public int GENERO_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CIUDAD_ID", DbType="Int NOT NULL")]
+		public int CIUDAD_ID
 		{
 			get
 			{
-				return this._GENERO_ID;
+				return this._CIUDAD_ID;
 			}
 			set
 			{
-				if ((this._GENERO_ID != value))
+				if ((this._CIUDAD_ID != value))
 				{
-					this.OnGENERO_IDChanging(value);
+					this.OnCIUDAD_IDChanging(value);
 					this.SendPropertyChanging();
-					this._GENERO_ID = value;
-					this.SendPropertyChanged("GENERO_ID");
-					this.OnGENERO_IDChanged();
+					this._CIUDAD_ID = value;
+					this.SendPropertyChanged("CIUDAD_ID");
+					this.OnCIUDAD_IDChanged();
 				}
 			}
 		}
@@ -239,22 +239,22 @@ namespace Platform.Modeler.Entity
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CIUDAD_ID", DbType="Int NOT NULL")]
-		public int CIUDAD_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENERO_ID", DbType="Int NOT NULL")]
+		public int GENERO_ID
 		{
 			get
 			{
-				return this._CIUDAD_ID;
+				return this._GENERO_ID;
 			}
 			set
 			{
-				if ((this._CIUDAD_ID != value))
+				if ((this._GENERO_ID != value))
 				{
-					this.OnCIUDAD_IDChanging(value);
+					this.OnGENERO_IDChanging(value);
 					this.SendPropertyChanging();
-					this._CIUDAD_ID = value;
-					this.SendPropertyChanged("CIUDAD_ID");
-					this.OnCIUDAD_IDChanged();
+					this._GENERO_ID = value;
+					this.SendPropertyChanged("GENERO_ID");
+					this.OnGENERO_IDChanged();
 				}
 			}
 		}

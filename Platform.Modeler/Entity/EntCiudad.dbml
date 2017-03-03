@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AlquilerCarros" Class="EntCiudadDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-92V359R\SQLEXPRESS;Initial Catalog=AlquilerCarros;Integrated Security=True" SettingsObjectName="Platform.Modeler.Properties.Settings" SettingsPropertyName="AlquilerCarrosConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SANTYID;Initial Catalog=AlquilerCarros;User ID=sa" SettingsObjectName="Platform.Modeler.Properties.Settings" SettingsPropertyName="AlquilerCarrosConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CIUDAD" Member="CIUDAD">
     <Type Name="CIUDAD">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

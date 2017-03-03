@@ -22,9 +22,9 @@ namespace Platform.Modeler.DAO
             {
                 VEHICULO veh = new VEHICULO();
                 veh.PLACA = placa;
-                veh.numero_puestos = numero_puestos;
+                veh.NPUERTAS = numero_puestos;
                 veh.COLOR = color;
-                veh.VALOR_DIA = valor_dia;
+                veh.VALORDIA = valor_dia;
                 veh.MARCA_ID = marca_id;
 
                 db.VEHICULO.InsertOnSubmit(veh);
@@ -50,9 +50,9 @@ namespace Platform.Modeler.DAO
 
             foreach (VEHICULO veh in consulta)
             {
-                temp.AddLast(veh.numero_puestos);
+                temp.AddLast(veh.NPUERTAS);
                 temp.AddLast(veh.COLOR);
-                temp.AddLast(veh.VALOR_DIA);
+                temp.AddLast(veh.VALORDIA);
                 temp.AddLast(veh.MARCA_ID.ToString());
              
 
@@ -70,9 +70,9 @@ namespace Platform.Modeler.DAO
                 {
                     
                     veh.PLACA = placa;
-                    veh.numero_puestos = numero_puestos;
+                    veh.NPUERTAS = numero_puestos;
                     veh.COLOR = color;
-                    veh.VALOR_DIA = valor_dia;
+                    veh.VALORDIA = valor_dia;
                     veh.MARCA_ID = marca_id;
 
                 }

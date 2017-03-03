@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Servicio" Class="EntVehiculoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=SANTYID;Initial Catalog=Servicio;Persist Security Info=True;User ID=sa" SettingsObjectName="Platform.Modeler.Properties.Settings" SettingsPropertyName="ServicioConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AlquilerCarros" Class="EntVehiculoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SANTYID;Initial Catalog=AlquilerCarros;User ID=sa" SettingsObjectName="Platform.Modeler.Properties.Settings" SettingsPropertyName="AlquilerCarrosConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.VEHICULO" Member="VEHICULO">
     <Type Name="VEHICULO">
-      <Column Name="PLACA" Type="System.String" DbType="NVarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="numero_puestos" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PLACA" Type="System.String" DbType="NVarChar(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NPUERTAS" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="COLOR" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="VALOR_DIA" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="VALORDIA" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="MARCA_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>

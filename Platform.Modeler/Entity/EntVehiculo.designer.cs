@@ -22,7 +22,7 @@ namespace Platform.Modeler.Entity
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Servicio")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AlquilerCarros")]
 	public partial class EntVehiculoDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,7 +36,7 @@ namespace Platform.Modeler.Entity
     #endregion
 		
 		public EntVehiculoDataContext() : 
-				base(global::Platform.Modeler.Properties.Settings.Default.ServicioConnectionString, mappingSource)
+				base(global::Platform.Modeler.Properties.Settings.Default.AlquilerCarrosConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -82,11 +82,11 @@ namespace Platform.Modeler.Entity
 		
 		private string _PLACA;
 		
-		private string _numero_puestos;
+		private string _NPUERTAS;
 		
 		private string _COLOR;
 		
-		private string _VALOR_DIA;
+		private string _VALORDIA;
 		
 		private int _MARCA_ID;
 		
@@ -96,12 +96,12 @@ namespace Platform.Modeler.Entity
     partial void OnCreated();
     partial void OnPLACAChanging(string value);
     partial void OnPLACAChanged();
-    partial void Onnumero_puestosChanging(string value);
-    partial void Onnumero_puestosChanged();
+    partial void OnNPUERTASChanging(string value);
+    partial void OnNPUERTASChanged();
     partial void OnCOLORChanging(string value);
     partial void OnCOLORChanged();
-    partial void OnVALOR_DIAChanging(string value);
-    partial void OnVALOR_DIAChanged();
+    partial void OnVALORDIAChanging(string value);
+    partial void OnVALORDIAChanged();
     partial void OnMARCA_IDChanging(int value);
     partial void OnMARCA_IDChanged();
     #endregion
@@ -111,7 +111,7 @@ namespace Platform.Modeler.Entity
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PLACA", DbType="NVarChar(25) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PLACA", DbType="NVarChar(1) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string PLACA
 		{
 			get
@@ -131,22 +131,22 @@ namespace Platform.Modeler.Entity
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numero_puestos", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string numero_puestos
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NPUERTAS", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string NPUERTAS
 		{
 			get
 			{
-				return this._numero_puestos;
+				return this._NPUERTAS;
 			}
 			set
 			{
-				if ((this._numero_puestos != value))
+				if ((this._NPUERTAS != value))
 				{
-					this.Onnumero_puestosChanging(value);
+					this.OnNPUERTASChanging(value);
 					this.SendPropertyChanging();
-					this._numero_puestos = value;
-					this.SendPropertyChanged("numero_puestos");
-					this.Onnumero_puestosChanged();
+					this._NPUERTAS = value;
+					this.SendPropertyChanged("NPUERTAS");
+					this.OnNPUERTASChanged();
 				}
 			}
 		}
@@ -171,22 +171,22 @@ namespace Platform.Modeler.Entity
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALOR_DIA", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string VALOR_DIA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALORDIA", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string VALORDIA
 		{
 			get
 			{
-				return this._VALOR_DIA;
+				return this._VALORDIA;
 			}
 			set
 			{
-				if ((this._VALOR_DIA != value))
+				if ((this._VALORDIA != value))
 				{
-					this.OnVALOR_DIAChanging(value);
+					this.OnVALORDIAChanging(value);
 					this.SendPropertyChanging();
-					this._VALOR_DIA = value;
-					this.SendPropertyChanged("VALOR_DIA");
-					this.OnVALOR_DIAChanged();
+					this._VALORDIA = value;
+					this.SendPropertyChanged("VALORDIA");
+					this.OnVALORDIAChanged();
 				}
 			}
 		}

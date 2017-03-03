@@ -22,7 +22,7 @@ namespace Platform.Modeler.Entity
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Servicio")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AlquilerCarros")]
 	public partial class EntAlquilerDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,7 +36,7 @@ namespace Platform.Modeler.Entity
     #endregion
 		
 		public EntAlquilerDataContext() : 
-				base(global::Platform.Modeler.Properties.Settings.Default.ServicioConnectionString, mappingSource)
+				base(global::Platform.Modeler.Properties.Settings.Default.AlquilerCarrosConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -167,7 +167,7 @@ namespace Platform.Modeler.Entity
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VEHICULO_PLACA", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VEHICULO_PLACA", DbType="NVarChar(1) NOT NULL", CanBeNull=false)]
 		public string VEHICULO_PLACA
 		{
 			get
