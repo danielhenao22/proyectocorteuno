@@ -45,7 +45,7 @@ namespace Platform.Modeler.DAO
         {
             LinkedList<String> temp = new LinkedList<String>();
 
-            var consulta = from x in db.ALQUILER where x.ID == id select x;
+            var consulta = db.ALQUILER.Where(p => p.ID == id);
 
             consulta.First();
 

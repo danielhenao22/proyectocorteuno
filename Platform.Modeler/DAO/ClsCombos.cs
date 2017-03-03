@@ -27,13 +27,14 @@ namespace Platform.Modeler.DAO
         {
             LinkedList<String> temp = new LinkedList<String>();
 
-            var consulta = from x in dbCiudad.CIUDAD select x;
+            var consulta = dbCiudad.CIUDAD.Select
+               (p => new { p.ID, p.NOMBRE }).ToList();
 
             consulta.First();
 
-            foreach (CIUDAD ciu in consulta)
+            foreach (var ciu in consulta)
             {
-                temp.AddLast(ciu.ID.ToString());
+                temp.AddLast(ciu.NOMBRE.ToString());
                 temp.AddLast(ciu.NOMBRE);
             }
             return temp;
@@ -43,11 +44,12 @@ namespace Platform.Modeler.DAO
         {
             LinkedList<String> temp = new LinkedList<String>();
 
-            var consulta = from x in dbGenero.GENERO select x;
+            var consulta = dbGenero.GENERO.Select
+               (p => new { p.ID, p.NOMBRE }).ToList();
 
             consulta.First();
 
-            foreach (GENERO gen in consulta)
+            foreach (var gen in consulta)
             {
                 temp.AddLast(gen.ID.ToString());
                 temp.AddLast(gen.NOMBRE);
@@ -59,11 +61,12 @@ namespace Platform.Modeler.DAO
         {
             LinkedList<String> temp = new LinkedList<String>();
 
-            var consulta = from x in dbTipoDic.TIPO_DOCUMENTO select x;
+            var consulta = dbTipoDic.TIPO_DOCUMENTO.Select
+               (p => new { p.ID, p.NOMBRE }).ToList();
 
             consulta.First();
 
-            foreach (TIPO_DOCUMENTO tip in consulta)
+            foreach (var tip in consulta)
             {
                 temp.AddLast(tip.ID.ToString());
                 temp.AddLast(tip.NOMBRE);

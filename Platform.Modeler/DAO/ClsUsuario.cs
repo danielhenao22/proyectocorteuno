@@ -17,28 +17,7 @@ namespace Platform.Modeler.DAO
             db = new EntUsuarioDataContext();
         }
 
-        public LinkedList<String> buscarTodosCiudad(int CEDULA)
-        {
-            LinkedList<String> temp = new LinkedList<String>();
-
-            var consulta = from x in db.USUARIO where x.CEDULA == CEDULA select x;
-
-            consulta.First();
-
-            foreach (USUARIO usu in consulta)
-            {
-                temp.AddLast(usu.CEDULA.ToString());
-                temp.AddLast(usu.NOMBRE);
-                temp.AddLast(usu.APELLIDO);
-                temp.AddLast(usu.EDAD.ToString());
-                temp.AddLast(usu.GENERO_ID.ToString());
-                temp.AddLast(usu.TIPO_DOCUMENTO_ID.ToString());
-                temp.AddLast(usu.CIUDAD_ID.ToString());
-
-
-            }
-            return temp;
-        }
+        
 
         public bool guardar(int documento, String nombre, String apellido, int edad, int genero_id, int tipo_documento_id, int cuidad_id)
         {
@@ -68,7 +47,7 @@ namespace Platform.Modeler.DAO
         {
             LinkedList<String> temp = new LinkedList<String>();
 
-            var consulta = from x in db.USUARIO where x.CEDULA == CEDULA select x;
+            var consulta = db.USUARIO.Where(p => p.CEDULA == CEDULA);
 
             consulta.First();
 

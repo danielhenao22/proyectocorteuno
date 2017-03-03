@@ -1,4 +1,5 @@
 ﻿using Platform.Modeler.DAO;
+using Platform.Modeler.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,21 +16,43 @@ namespace AutoServicio.Navigation
     {
 
         ClsAlquiler alquiler;
+        ClsCombos combo;
+
         public Alquiler()
         {
             InitializeComponent();
             alquiler = new ClsAlquiler();
+            combo = new ClsCombos();
+            cargarCombos();
+        }
+
+        public void cargarCombos()
+        {
+            LinkedList<String> tipoDocumentos = new LinkedList<String>();
+            tipoDocumentos = combo.buscarTodosTipoDoc();
+
+            BindingList<Item> tipo = new BindingList<Item>();
+            tipo.Add(new Item("Tipo de Documento", 0));
+
+            for (int i = 0; i < tipoDocumentos.Count; i++)
+            {                
+                tipo.Add(new Item((tipoDocumentos.ElementAt(i)), Convert.ToInt32(tipoDocumentos.ElementAt(i))));
+            }
+            
+
+            jCUsuario.DisplayMember = "Name";
+            jCUsuario.ValueMember = "Value";
+            jCUsuario.DataSource = tipo;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32((!jCodigo.Text.Equals("")) ? jCodigo.Text : "0");
-            int usuar = Convert.ToInt32((!jCUsuario.Text.Equals("")) ? jCUsuario.Text : "0");
+            int codigo = Convert.ToInt32(jCodigo.Text);
+            int usuar = Convert.ToInt32(jCUsuario.Text);
             String veh = Convert.ToString((!jCVehiculo.Text.Equals("")) ? jCVehiculo.Text : "0");
-//            DateTime dia = Convert.ToInt32((!jDFecha.Text.Equals("")) ? jDFecha.Text : "0");
+            DateTime dia = jDFecha.Value.Date;
 
-
-
+            alquiler.guardar(usuar, veh,dia);
 
            
         }
@@ -168,5 +191,12 @@ namespace AutoServicio.Navigation
                 MessageBox.Show("No se pudo eliminar");
            // }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
+
+   
 }
