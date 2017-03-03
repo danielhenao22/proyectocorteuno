@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Servicio" Class="EntUsuarioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SANTYID;Initial Catalog=Servicio;Persist Security Info=True;User ID=sa" SettingsObjectName="Platform.Modeler.Properties.Settings" SettingsPropertyName="ServicioConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.USUARIO" Member="USUARIO">
+    <Type Name="USUARIO">
+      <Column Name="CEDULA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="APELLIDO" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="EDAD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GENERO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TIPO_DOCUMENTO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CIUDAD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

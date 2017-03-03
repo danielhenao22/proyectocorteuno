@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoServicio", "AutoServicio\AutoServicio.csproj", "{56BF80C1-4044-4806-8132-03EAC5ADB0D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Negocio", "Negocio", "{5C8FD0D2-07D7-40BA-9063-868212B2CA0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vista", "Vista", "{A0AF1D47-3401-49DC-8B81-61E1BF42A131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Modeler", "Platform.Modeler\Platform.Modeler.csproj", "{88C17573-FF49-4DBA-B883-8E994312ED70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56BF80C1-4044-4806-8132-03EAC5ADB0D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56BF80C1-4044-4806-8132-03EAC5ADB0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56BF80C1-4044-4806-8132-03EAC5ADB0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56BF80C1-4044-4806-8132-03EAC5ADB0D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C17573-FF49-4DBA-B883-8E994312ED70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C17573-FF49-4DBA-B883-8E994312ED70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C17573-FF49-4DBA-B883-8E994312ED70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C17573-FF49-4DBA-B883-8E994312ED70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88C17573-FF49-4DBA-B883-8E994312ED70} = {5C8FD0D2-07D7-40BA-9063-868212B2CA0B}
+		{56BF80C1-4044-4806-8132-03EAC5ADB0D5} = {A0AF1D47-3401-49DC-8B81-61E1BF42A131}
+	EndGlobalSection
+EndGlobal
