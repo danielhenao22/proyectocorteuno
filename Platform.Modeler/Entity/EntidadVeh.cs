@@ -19,6 +19,10 @@ namespace Platform.Modeler.Entity
 
         public EntidadVeh(string placa, string npuertas, string color, string valor, int marcaId)
         {
+
+
+
+
             this.placa = placa;
             this.npuertas = npuertas;
             this.color = color;
