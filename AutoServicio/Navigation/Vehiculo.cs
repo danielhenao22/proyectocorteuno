@@ -1,4 +1,5 @@
 ﻿using Platform.Modeler.DAO;
+using Platform.Modeler.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,30 @@ namespace AutoServicio.Navigation
     public partial class Vehiculo : Form
     {
         ClsVehiculo vehiculo;
+        ClsCombos combos;
         public Vehiculo()
         {
             InitializeComponent();
             vehiculo = new ClsVehiculo();
+            combos = new ClsCombos();
+
+
+            LinkedList<EntidadGen> marca = new LinkedList<EntidadGen>();
+            marca = combos.buscarTodosMarca();
+
+            BindingList<Item> ma = new BindingList<Item>();
+            ma.Add(new Item("Seleccione Marca", 0));
+
+            for (int i = 0; i < marca.Count; i++)
+            {
+                ma.Add(new Item((marca.ElementAt(i).nombre), Convert.ToInt32(marca.ElementAt(i).id)));
+            }
+
+
+            jCMarca.DisplayMember = "Name";
+            jCMarca.ValueMember = "Value";
+            jCMarca.DataSource = ma;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,14 +47,12 @@ namespace AutoServicio.Navigation
             String numeroP = jNumeroP.Text;
             String color = jColor.Text;
             String valor = jValorDia.Text;
-            int marca = 1;
+            int marca = jCMarca.SelectedIndex;
 
 
             if (vehiculo.guardar(placa, numeroP, color, valor, marca))
-            {
-                //limpiar();
+            {                
                 MessageBox.Show("Guardado con exito");
-
             }
             else
             {
@@ -43,22 +62,15 @@ namespace AutoServicio.Navigation
 
         private void button7_Click(object sender, EventArgs e)
         {
-            String placa = jId.Text;
-
+            String placa = jPlaca.Text;
             LinkedList<String> temp = new LinkedList<String>();
             temp = vehiculo.buscar(placa);
-
             if (temp.Count > 0)
-            {
-                jId.Enabled = false;
-                //botonModificar enalble true
-                //BotonEliminar enable true
-                jPlaca.Text = temp.ElementAt(0);
-                jNumeroP.Text = temp.ElementAt(1);
-                jColor.Text = temp.ElementAt(2);
-                jValorDia.Text = temp.ElementAt(3);
-                jCMarca.Text = temp.ElementAt(4);
-              
+            {  
+                jNumeroP.Text = temp.ElementAt(0);
+                jColor.Text = temp.ElementAt(1);
+                jValorDia.Text = temp.ElementAt(2);
+                jCMarca.SelectedIndex = Convert.ToInt32(temp.ElementAt(3));              
             }
             else
             {
@@ -68,35 +80,28 @@ namespace AutoServicio.Navigation
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             String placa = jPlaca.Text;
             String numeroP = jNumeroP.Text;
             String color = jColor.Text;
             String valor = jValorDia.Text;
-            int marca = 1;
+            int marca = jCMarca.SelectedIndex;
 
             if (vehiculo.modificar(placa, numeroP, color, valor, marca))
-            {
-                //limpiar();
+            {                
                 MessageBox.Show("Modicado con exito");
-                jPlaca.Enabled = true;
-                //listar();
-
             }
             else
             {
-                MessageBox.Show("Error al guardar.");
+                MessageBox.Show("Error al modificar.");
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String codigo = jId.Text;
+            String codigo = jPlaca.Text;
             if (vehiculo.eliminar(codigo))
-            {
-                //Limpiar
-                MessageBox.Show("Eliminado con exito");
-                //Listar
+            {               
+                MessageBox.Show("Eliminado con exito");                
             }
             else
             {
@@ -110,7 +115,7 @@ namespace AutoServicio.Navigation
             int numeroP = Convert.ToInt32((!jNumeroP.Text.Equals("")) ? jNumeroP.Text : "0");
             String color = jColor.Text;
             int valor = Convert.ToInt32((!jValorDia.Text.Equals("")) ? jValorDia.Text : "0");
-            int marca = 1;
+            int marca = jCMarca.SelectedIndex;
 
 
             
@@ -122,23 +127,20 @@ namespace AutoServicio.Navigation
             int numeroP = Convert.ToInt32((!jNumeroP.Text.Equals("")) ? jNumeroP.Text : "0");
             String color = jColor.Text;
             int valor = Convert.ToInt32((!jValorDia.Text.Equals("")) ? jValorDia.Text : "0");
-            int marca = 1;
+            int marca = jCMarca.SelectedIndex;
 
            
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            String placa = jId.Text;
+            String placa = jPlaca.Text;
 
             LinkedList<String> temp = new LinkedList<String>();
             
 
             if (temp.Count > 0)
-            {
-                jId.Enabled = false;
-                //botonModificar enalble true
-                //BotonEliminar enable true
+            {                
                 jPlaca.Text = temp.ElementAt(0);
                 jNumeroP.Text = temp.ElementAt(1);
                 jColor.Text = temp.ElementAt(2);
@@ -154,7 +156,7 @@ namespace AutoServicio.Navigation
 
         private void button6_Click(object sender, EventArgs e)
         {
-            String codigo = jId.Text;
+            String codigo = jPlaca.Text;
             
         }
     }

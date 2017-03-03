@@ -23,13 +23,11 @@ namespace Platform.Modeler.DAO
         {
             try
             {
-                ALQUILER alq = new ALQUILER();
+                ALQUILER alq = new ALQUILER();                
                 
                 alq.USUARIO_CEDULA = usuario_id;
                 alq.VEHICULO_PLACA = vehiculo_id;
                 alq.FECHA_ALQUILER = fecha_alquiler;
-
-
                 db.ALQUILER.InsertOnSubmit(alq);
                 db.SubmitChanges();
 
@@ -37,6 +35,7 @@ namespace Platform.Modeler.DAO
             }
             catch (Exception ex)
             {
+                Console.WriteLine("EROR"+ex);
                 return false;
 
             }
@@ -68,7 +67,7 @@ namespace Platform.Modeler.DAO
         {
             try
             {
-                var consulta = from x in db.ALQUILER where x.ID == id select x;
+                var consulta = db.ALQUILER.Where(p => p.ID == id); ;
                 consulta.First();
                 foreach (ALQUILER alq in consulta)
                 {
@@ -93,7 +92,7 @@ namespace Platform.Modeler.DAO
         {
             try
             {
-                var consulta = from x in db.ALQUILER where x.ID == id select x;
+                var consulta = db.ALQUILER.Where(p => p.ID == id);
                 consulta.First();
                 foreach (ALQUILER alq in consulta)
                 {

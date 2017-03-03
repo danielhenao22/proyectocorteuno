@@ -43,8 +43,8 @@ namespace Platform.Modeler.DAO
         public LinkedList<String> buscar(String placa)
         {
             LinkedList<String> temp = new LinkedList<String>();
-
-            var consulta = from x in db.VEHICULO where x.PLACA == placa select x;
+            
+            var consulta = db.VEHICULO.Where(p => p.PLACA == placa);
 
             consulta.First();
 
@@ -64,7 +64,7 @@ namespace Platform.Modeler.DAO
         {
             try
             {
-                var consulta = from x in db.VEHICULO where x.PLACA == placa select x;
+                var consulta = db.VEHICULO.Where(p => p.PLACA == placa);
                 consulta.First();
                 foreach (VEHICULO veh in consulta)
                 {
@@ -89,7 +89,7 @@ namespace Platform.Modeler.DAO
         {
             try
             {
-                var consulta = from x in db.VEHICULO where x.PLACA == placa select x;
+                var consulta = db.VEHICULO.Where(p => p.PLACA == placa);
                 consulta.First();
                 foreach (VEHICULO est in consulta)
                 {

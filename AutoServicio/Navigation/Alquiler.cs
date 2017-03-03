@@ -28,31 +28,56 @@ namespace AutoServicio.Navigation
 
         public void cargarCombos()
         {
-            LinkedList<EntidadGen> tipoDocumentos = new LinkedList<EntidadGen>();
-            tipoDocumentos = combo.buscarTodosTipoDoc();
+            LinkedList<EntidadGen> usu = new LinkedList<EntidadGen>();
+            usu = combo.buscarTodosUsuarios();
 
             BindingList<Item> tipo = new BindingList<Item>();
-            tipo.Add(new Item("Tipo de Documento", 0));
+            tipo.Add(new Item("Usuario", 0));
 
-            for (int i = 0; i < tipoDocumentos.Count; i++)
-            {                
-                tipo.Add(new Item((tipoDocumentos.ElementAt(i).nombre), Convert.ToInt32(tipoDocumentos.ElementAt(i).id)));
+            for (int i = 0; i < usu.Count; i++)
+            {
+
+                tipo.Add(new Item((usu.ElementAt(i).nombre), Convert.ToInt32(usu.ElementAt(i).id)));
+                MessageBox.Show("nn: " + usu.ElementAt(i).nombre +" num:"+Convert.ToInt32(usu.ElementAt(i).id));
             }
             
 
             jCUsuario.DisplayMember = "Name";
             jCUsuario.ValueMember = "Value";
             jCUsuario.DataSource = tipo;
+
+            LinkedList<EntidadGen> carros = new LinkedList<EntidadGen>();
+            carros = combo.buscarTodosVehiculos();
+
+            BindingList<Item> car = new BindingList<Item>();
+            car.Add(new Item("Carro / valor", 0));
+
+            for (int i = 0; i < carros.Count; i++)
+            {
+                car.Add(new Item((carros.ElementAt(i).nombre), Convert.ToInt32(carros.ElementAt(i).id)));
+            }
+
+
+            jCVehiculo.DisplayMember = "Name";
+            jCVehiculo.ValueMember = "Value";
+            jCVehiculo.DataSource = car;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(jCodigo.Text);
-            int usuar = Convert.ToInt32(jCUsuario.Text);
-            String veh = Convert.ToString((!jCVehiculo.Text.Equals("")) ? jCVehiculo.Text : "0");
+            int usuar = jCUsuario.SelectedIndex;
+            String veh = jCVehiculo.Text;
             DateTime dia = jDFecha.Value.Date;
 
-            alquiler.guardar(usuar, veh,dia);
+            MessageBox.Show(" -" + usuar + " ," + dia+" ," + veh);
+            if (alquiler.guardar(usuar, veh, dia))
+            {
+                MessageBox.Show("Guardo");
+            }
+            else
+            {
+                MessageBox.Show("No Guardo");
+            }
 
            
         }
@@ -70,7 +95,7 @@ namespace AutoServicio.Navigation
                 jId.Enabled = false;
                 //botonModificar enalble true
                 //BotonEliminar enable true
-                jCodigo.Text = temp.ElementAt(0);
+                
                 jCUsuario.Text = temp.ElementAt(1);
                 jCVehiculo.Text = temp.ElementAt(2);
                 jDFecha.Text = temp.ElementAt(3);
@@ -120,7 +145,7 @@ namespace AutoServicio.Navigation
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32((!jCodigo.Text.Equals("")) ? jCodigo.Text : "0");
+     
             int usuar = Convert.ToInt32((!jCUsuario.Text.Equals("")) ? jCUsuario.Text : "0");
             String veh = Convert.ToString((!jCVehiculo.Text.Equals("")) ? jCVehiculo.Text : "0");
            // DateTime dia = Convert.ToInt32((!jDFecha.Text.Equals("")) ? jDFecha.Text : "0");
@@ -165,7 +190,6 @@ namespace AutoServicio.Navigation
                 jId.Enabled = false;
                 //botonModificar enalble true
                 //BotonEliminar enable true
-                jCodigo.Text = temp.ElementAt(0);
                 jCUsuario.Text = temp.ElementAt(1);
                 jCVehiculo.Text = temp.ElementAt(2);
                 jDFecha.Text = temp.ElementAt(3);
@@ -193,6 +217,16 @@ namespace AutoServicio.Navigation
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void jCUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jCVehiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

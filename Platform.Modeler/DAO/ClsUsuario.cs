@@ -70,12 +70,10 @@ namespace Platform.Modeler.DAO
         {
             try
             {
-                var consulta = from x in db.USUARIO where x.CEDULA == CEDULA select x;
+                var consulta = db.USUARIO.Where(p => p.CEDULA == CEDULA);
                 consulta.First();
                 foreach (USUARIO usu in consulta)
                 {
-
-
                     usu.CEDULA = CEDULA;
                     usu.NOMBRE = nombre;
                     usu.APELLIDO = apellido;
@@ -98,7 +96,7 @@ namespace Platform.Modeler.DAO
         {
             try
             {
-                var consulta = from x in db.USUARIO where x.CEDULA == CEDULA select x;
+                var consulta = db.USUARIO.Where(p => p.CEDULA == CEDULA);
                 consulta.First();
                 foreach (USUARIO usu in consulta)
                 {
