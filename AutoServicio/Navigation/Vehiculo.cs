@@ -19,20 +19,33 @@ namespace AutoServicio.Navigation
         public Vehiculo()
         {
             InitializeComponent();
+            combo = new ClsCombos();
             vehiculo = new ClsVehiculo();
-            combos = new ClsCombos();
+            cargarLista();
+        }
 
+        public void cargarLista()
+        {
+            LinkedList<EntidadVeh> tipoDocumentos = new LinkedList<EntidadVeh>();
+            tipoDocumentos = combo.condicionalselect();
 
-            LinkedList<EntidadGen> marca = new LinkedList<EntidadGen>();
-            marca = combos.buscarTodosMarca();
+            dataGridView1.Rows.Clear();
+            BindingList<Item> tipo = new BindingList<Item>();
 
-            BindingList<Item> ma = new BindingList<Item>();
-            ma.Add(new Item("Seleccione Marca", 0));
+          
 
-            for (int i = 0; i < marca.Count; i++)
+            foreach (EntidadVeh v in tipoDocumentos)
             {
-                ma.Add(new Item((marca.ElementAt(i).nombre), Convert.ToInt32(marca.ElementAt(i).id)));
+                dataGridView1.Rows.Add(v.placa);
+                dataGridView1.Rows.Add(v.npuertas);
+                dataGridView1.Rows.Add(v.color);
+                dataGridView1.Rows.Add(v.valor);
+                dataGridView1.Rows.Add(v.marcaId);
             }
+
+
+         
+        }
 
 
             jCMarca.DisplayMember = "Name";
@@ -51,7 +64,7 @@ namespace AutoServicio.Navigation
 
 
             if (vehiculo.guardar(placa, numeroP, color, valor, marca))
-            {                
+            {
                 MessageBox.Show("Guardado con exito");
             }
             else
@@ -66,7 +79,7 @@ namespace AutoServicio.Navigation
             LinkedList<String> temp = new LinkedList<String>();
             temp = vehiculo.buscar(placa);
             if (temp.Count > 0)
-            {  
+            {
                 jNumeroP.Text = temp.ElementAt(0);
                 jColor.Text = temp.ElementAt(1);
                 jValorDia.Text = temp.ElementAt(2);
@@ -87,7 +100,7 @@ namespace AutoServicio.Navigation
             int marca = jCMarca.SelectedIndex;
 
             if (vehiculo.modificar(placa, numeroP, color, valor, marca))
-            {                
+            {
                 MessageBox.Show("Modicado con exito");
             }
             else
@@ -100,8 +113,8 @@ namespace AutoServicio.Navigation
         {
             String codigo = jPlaca.Text;
             if (vehiculo.eliminar(codigo))
-            {               
-                MessageBox.Show("Eliminado con exito");                
+            {
+                MessageBox.Show("Eliminado con exito");
             }
             else
             {
@@ -140,7 +153,7 @@ namespace AutoServicio.Navigation
             
 
             if (temp.Count > 0)
-            {                
+            {
                 jPlaca.Text = temp.ElementAt(0);
                 jNumeroP.Text = temp.ElementAt(1);
                 jColor.Text = temp.ElementAt(2);

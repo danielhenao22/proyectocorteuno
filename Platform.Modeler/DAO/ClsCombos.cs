@@ -141,5 +141,27 @@ namespace Platform.Modeler.DAO
             return temp;
         }
         
+
+        public LinkedList<EntidadVeh> condicionalselect()
+        {
+            LinkedList<EntidadVeh> temp = new LinkedList<EntidadVeh>();
+            var consulta = dbVehiculo.VEHICULO.Select
+                (p => new { p.PLACA, p.NPUERTAS, p.COLOR, p.VALORDIA, p.MARCA_ID }).ToList();
+
+            consulta.First();
+            
+            foreach (var est in consulta)
+            {
+                EntidadVeh ent = new EntidadVeh();
+                ent.placa = est.PLACA;
+                ent.npuertas = est.NPUERTAS;
+                ent.color = est.COLOR;
+                ent.valor = est.VALORDIA;
+                ent.marcaId = est.MARCA_ID;
+                
+                temp.AddLast(ent);
+            }
+            return temp;
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace AutoServicio.Navigation
             tipo.Add(new Item("Usuario", 0));
 
             for (int i = 0; i < usu.Count; i++)
-            {
+            {                
 
                 tipo.Add(new Item((usu.ElementAt(i).nombre), Convert.ToInt32(usu.ElementAt(i).id)));
                 MessageBox.Show("nn: " + usu.ElementAt(i).nombre +" num:"+Convert.ToInt32(usu.ElementAt(i).id));
@@ -55,7 +55,7 @@ namespace AutoServicio.Navigation
             for (int i = 0; i < carros.Count; i++)
             {
                 car.Add(new Item((carros.ElementAt(i).nombre), Convert.ToInt32(carros.ElementAt(i).id)));
-            }
+        }
 
 
             jCVehiculo.DisplayMember = "Name";
